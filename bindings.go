@@ -193,10 +193,6 @@ nvmlReturn_t nvmlInit_dl(void) {
   if (nvmlDeviceGetFanSpeedFunc == NULL) {
     return NVML_ERROR_FUNCTION_NOT_FOUND;
   }
-  nvmlDeviceGetSamplesFunc = dlsym(nvmlHandle, "nvmlDeviceGetSamples");
-  // if (nvmlDeviceGetSamplesFunc == NULL) {
-  //   return NVML_ERROR_FUNCTION_NOT_FOUND;
-  // }
   nvmlReturn_t result = nvmlInitFunc();
   if (result != NVML_SUCCESS) {
     dlclose(nvmlHandle);
